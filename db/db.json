@@ -1,0 +1,710 @@
+{
+  "navigation": {
+    "guest": [
+      {
+        "text": "Início",
+        "href": "/index.html"
+      },
+      {
+        "text": "Buscar Rotas",
+        "href": "/modulos/filtros/filtros.html"
+      },
+      {
+        "text": "Calculadora",
+        "href": "/modulos/calculadora/calculadora.html"
+      }
+    ],
+    "parent": [
+      {
+        "text": "Início",
+        "href": "/index.html"
+      },
+      {
+        "text": "Buscar Rotas",
+        "href": "/modulos/filtros/filtros.html"
+      },
+      {
+        "text": "Meus Contratos",
+        "href": "/modulos/meus-contratos/meus-contratos.html"
+      },
+      {
+        "text": "Meu Painel",
+        "href": "/modulos/areaParente/areaParente.html"
+      }
+    ],
+    "driver": [
+      {
+        "text": "Meu Painel",
+        "href": "/modulos/areaMotorista/areaMotorista.html"
+      },
+      {
+        "text": "Visualizar Rotas",
+        "href": "/modulos/filtros/filtros.html"
+      }
+    ],
+    "admin": [
+      {
+        "text": "Dashboard",
+        "href": "/modulos/admin/admin.html"
+      }
+    ]
+  },
+  "homepageContent": {
+    "hero": {
+      "title": "VanConnect: A Sua Conexão Segura e Confiável",
+      "subtitle": "Encontre facilmente as melhores opções de vans escolares na sua região.",
+      "ctaButtonText": "Buscar Rotas Agora",
+      "ctaButtonLink": "modulos/filtros/filtros.html"
+    },
+    "howItWorks": {
+      "title": "Como Funciona?",
+      "steps": [
+        {
+          "id": 1,
+          "icon": "./images/Logos/homepage/barra-de-pesquisa.png",
+          "title": "Busque",
+          "description": "Utilize nossos filtros avançados para encontrar a rota ideal por bairro, escola ou turno."
+        },
+        {
+          "id": 2,
+          "icon": "./images/Logos/homepage/analise-de-dados.png",
+          "title": "Compare",
+          "description": "Analise os perfis dos motoristas, detalhes dos veículos e os valores para fazer a melhor escolha."
+        },
+        {
+          "id": 3,
+          "icon": "./images/Logos/homepage/contrato.png",
+          "title": "Contrate",
+          "description": "Finalize o contrato diretamente pelo site, garantindo segurança e praticidade para você e seu filho."
+        }
+      ]
+    },
+    "featuredRoutes": {
+      "title": "Rotas em Destaque",
+      "routes": [
+        {
+          "routeName": "Rota Matinal Centro-Savassi",
+          "mainNeighborhoods": "Centro, Savassi",
+          "mainSchools": "Escola Saber",
+          "price": 250,
+          "image": "./images/Rotas/savassi.JPG",
+          "detailsLink": "/modulos/perfilMotorista/detalhes.html?driverId=1"
+        },
+        {
+          "routeName": "Rota Vespertina Buritis",
+          "mainNeighborhoods": "Buritis, Estoril",
+          "mainSchools": "Instituto Aprender Mais",
+          "price": 220,
+          "image": "./images/Rotas/buritis.jpg",
+          "detailsLink": "/modulos/perfilMotorista/detalhes.html?driverId=2"
+        },
+        {
+          "routeName": "Rota da Tarde - Sion/Anchieta",
+          "mainNeighborhoods": "Sion, Anchieta, Carmo",
+          "mainSchools": "Colégio ABC, Instituto Aprender Mais",
+          "price": 240,
+          "image": "./images/Rotas/anchieta.jpg",
+          "detailsLink": "/modulos/perfilMotorista/detalhes.html?driverId=2"
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "O Que Nossos Usuários Dizem",
+      "reviews": [
+        {
+          "id": 1,
+          "avatar": "/images/avatars/avatar3.png",
+          "quote": "Encontrei uma van para meu filho em menos de 10 minutos! O site é muito fácil de usar e o motorista é super atencioso. Recomendo!",
+          "author": "Ana Costa, Mãe do Lucas"
+        },
+        {
+          "id": 2,
+          "avatar": "/images/avatars/avatar1.png",
+          "quote": "A plataforma VanConnect me ajudou a otimizar minhas rotas e preencher todas as vagas rapidamente. Essencial para meu negócio.",
+          "author": "Tio João, Motorista"
+        },
+        {
+          "id": 3,
+          "avatar": "/images/avatars/avatar2.png",
+          "quote": "A segurança é minha maior preocupação, e poder ver o perfil do motorista e os detalhes do veículo me deu muita tranquilidade. Ótimo serviço!",
+          "author": "Mariana Silva, Mãe da Sofia"
+        }
+      ]
+    },
+    "stats": {
+      "title": "Nossos Números",
+      "items": [
+        {
+          "icon": "./images/Logos/estatistica/user-group.png",
+          "value": "1.200+",
+          "label": "Usuários Felizes"
+        },
+        {
+          "icon": "./images/Logos/estatistica/driver.png",
+          "value": "150+",
+          "label": "Rotas Cadastradas"
+        },
+        {
+          "icon": "./images/Logos/estatistica/safety.png",
+          "value": "99.9%",
+          "label": "Índice de Segurança"
+        }
+      ]
+    }
+  },
+  "routes": [
+    {
+      "id": 1,
+      "routeName": "Rota Matinal Centro-Savassi",
+      "shift": "Manhã",
+      "price": 250,
+      "driverId": "1",
+      "vehicleId": "1",
+      "neighborhoodsServed": [
+        "Centro",
+        "Savassi",
+        "Funcionários"
+      ],
+      "schoolIds": [
+        "1",
+        "2",
+        "3"
+      ],
+      "endPoint": {
+        "longLat": [
+          -25.9345,
+          -19.4501
+        ]
+      },
+      "pickupPoints": [
+        {
+          "longLat": [
+            -43.91509,
+            -19.92605
+          ]
+        },
+        {
+          "longLat": [
+            -13.91509,
+            -19.92605
+          ]
+        },
+        {
+          "longLat": [
+            -43.91509,
+            -39.92605
+          ]
+        },
+        {
+          "studentId": "6183",
+          "longLat": [
+            -43.9451686,
+            -19.9485717
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "routeName": "Rota Vespertina Buritis",
+      "shift": "Tarde",
+      "price": 220,
+      "driverId": "3",
+      "vehicleId": "1",
+      "neighborhoodsServed": [
+        "Buritis",
+        "Estoril",
+        "Gutierrez"
+      ],
+      "schoolIds": [],
+      "endPoint": {
+        "longLat": [
+          -25.9345,
+          -19.4501
+        ]
+      },
+      "pickupPoints": [
+        {
+          "longLat": [
+            -43.91509,
+            -19.92605
+          ]
+        },
+        {
+          "longLat": [
+            -13.91509,
+            -19.92605
+          ]
+        },
+        {
+          "longLat": [
+            -43.91509,
+            -39.92605
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "routeName": "Rota Noturna Pampulha",
+      "shift": "Noite",
+      "price": 180,
+      "driverId": "2",
+      "vehicleId": "1",
+      "neighborhoodsServed": [
+        "Pampulha",
+        "Jaraguá",
+        "Santa Amélia",
+        "Ouro Preto"
+      ],
+      "schoolIds": [],
+      "endPoint": {
+        "longLat": [
+          -25.9345,
+          -19.4501
+        ]
+      },
+      "pickupPoints": [
+        {
+          "longLat": [
+            -43.91509,
+            -19.92605
+          ]
+        },
+        {
+          "longLat": [
+            -13.91509,
+            -19.92605
+          ]
+        },
+        {
+          "longLat": [
+            -43.91509,
+            -39.92605
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "routeName": "Rota Matinal Belvedere-Lourdes",
+      "shift": "Manhã",
+      "price": 230,
+      "driverId": "2",
+      "vehicleId": "1",
+      "neighborhoodsServed": [
+        "Belvedere",
+        "Lourdes",
+        "Santo Agostinho",
+        "Sion"
+      ],
+      "schoolIds": [],
+      "endPoint": {
+        "longLat": [
+          -25.9345,
+          -19.4501
+        ]
+      },
+      "pickupPoints": [
+        {
+          "longLat": [
+            -43.91509,
+            -19.92605
+          ]
+        },
+        {
+          "longLat": [
+            -13.91509,
+            -19.92605
+          ]
+        },
+        {
+          "longLat": [
+            -43.91509,
+            -39.92605
+          ]
+        }
+      ]
+    },
+    {
+      "driverId": 1,
+      "vehicleId": 1,
+      "routeName": "Rota Tarde Centro-Floresta",
+      "shift": "Tarde",
+      "price": 260,
+      "neighborhoodsServed": [
+        "Centro",
+        "Floresta",
+        "Santa Efigênia",
+        "Colégio Batista"
+      ],
+      "schoolIds": [],
+      "id": 5
+    }
+  ],
+  "drivers": [
+    {
+      "name": "Tio João Transportes",
+      "contactEmail": "joao@email.com",
+      "phone": "(31) 996405019",
+      "status": "Ativo",
+      "id": 1,
+      "realtimeLocation": {
+        "longLat": [
+          -43.9452745,
+          -19.9484908
+        ]
+      },
+      "photoUrl": "/images/avatars/avatar1.png",
+      "chavePix": "joao@email.com"
+    },
+    {
+      "id": 2,
+      "name": "Transporte Seguro Ltda",
+      "contactEmail": "seguro@email.com",
+      "phone": "(31) 98888-2222",
+      "photoUrl": "/images/avatars/avatar2.png",
+      "status": "De Férias",
+      "cnh": "987654321",
+      "cnhValidity": "2026-05-15",
+      "emergencyContact": "(31) 98888-2223",
+      "usuarioId": 106,
+      "chavePix": "leo@pix.com",
+      "cidade": "Belo Horizonte",
+      "tipoChavePixId": 2,
+      "realtimeLocation": {
+        "longLat": [
+          -43.93686898619681,
+          -19.932724834316584
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "name": "Carlos Logística",
+      "contactEmail": "carlos@email.com",
+      "phone": "(31) 98765-4321",
+      "photoUrl": "/images/avatars/avatar3.png",
+      "status": "Disponível",
+      "cnh": "123123123",
+      "cnhValidity": "2027-02-01",
+      "emergencyContact": "(31) 98765-4322",
+      "usuarioId": 107,
+      "chavePix": "carlos@pix.com",
+      "cidade": "Belo Horizonte",
+      "tipoChavePixId": 1,
+      "realtimeLocation": {
+        "longLat": [
+          -43.9397233,
+          -19.9332786
+        ]
+      }
+    }
+  ],
+  "vehicles": [
+    {
+      "model": "Mercedes-Benz Sprinter",
+      "plate": "QRS-5678",
+      "capacity": 15,
+      "availableSpots": 13,
+      "driverId": "1",
+      "id": "1"
+    },
+    {
+      "model": "Renault Master",
+      "plate": "PQS-1234",
+      "capacity": 18,
+      "availableSpots": 18,
+      "driverId": "2",
+      "id": "2"
+    },
+    {
+      "model": "Fiat Ducato",
+      "plate": "XYZ-9876",
+      "capacity": 22,
+      "availableSpots": 22,
+      "driverId": "3",
+      "id": "3"
+    }
+  ],
+  "usuarios": [
+    {
+      "id": "999",
+      "nome": "Administrador",
+      "login": "admin",
+      "senha": "admin",
+      "email": "admin@vanconnect.com",
+      "role": "admin"
+    },
+    {
+      "id": "102",
+      "nome": "Tio João Transportes",
+      "login": "tiojoao",
+      "senha": "123",
+      "email": "joao@email.com",
+      "role": "driver",
+      "driverId": 1
+    },
+    {
+      "id": "106",
+      "nome": "Transporte Seguro Ltda",
+      "login": "seguro",
+      "senha": "123",
+      "email": "seguro@email.com",
+      "role": "driver",
+      "driverId": 2
+    },
+    {
+      "id": "107",
+      "nome": "Carlos Logística",
+      "login": "carloslog",
+      "senha": "123",
+      "email": "carlos@email.com",
+      "role": "driver",
+      "driverId": 3
+    },
+    {
+      "id": "101",
+      "nome": "Mariana Silva",
+      "login": "mariana",
+      "senha": "123",
+      "email": "mariana.s@email.com",
+      "role": "parent",
+      "photoUrl": "/images/avatars/avatar2.png",
+      "celular": "31 96405019"
+    }
+  ],
+  "schools": [
+    {
+      "id": "1",
+      "name": "Colégio ABC"
+    },
+    {
+      "id": "2",
+      "name": "Escola Saber"
+    },
+    {
+      "id": "3",
+      "name": "Instituto Aprender Mais"
+    },
+    {
+      "id": "4",
+      "name": "Colégio Santo Agostinho"
+    },
+    {
+      "id": "43e0",
+      "name": "FUMEC",
+      "logo": ""
+    },
+    {
+      "id": "188c",
+      "name": "PUC",
+      "logo": ""
+    }
+  ],
+  "students": [
+    {
+      "name": "Miriam Luce",
+      "school": "PUC",
+      "class": "3º ano",
+      "photoUrl": "/images/avatars/avatar2.png",
+      "parentId": "101",
+      "address": {
+        "street": "Rua Guilherme de Almeida",
+        "number": "191",
+        "neighborhood": "Santo Antonio",
+        "city": "Belo Horizonte"
+      },
+      "longLat": [
+        -43.9451686,
+        -19.9485717
+      ],
+      "id": "6183"
+    },
+    {
+      "name": "Marcelo Alves",
+      "parentId": "101",
+      "schoolId": "",
+      "class": "5º ano",
+      "photoUrl": "/images/avatars/avatar7.png",
+      "id": "82e0",
+      "address": {
+        "street": "Rua da Bahia",
+        "number": "2020",
+        "neighborhood": "Lourdes",
+        "city": "Belo Horizonte",
+        "cep": "30160-012"
+      },
+      "longLat": [
+        -43.9388,
+        -19.9284
+      ]
+    }
+  ],
+  "contracts": [
+    {
+      "studentId": "82e0",
+      "routeId": "1",
+      "parentId": "101",
+      "driverId": "1",
+      "date": "2025-06-08",
+      "status": "ativo",
+      "paymentStatus": "pago",
+      "id": "e182"
+    },
+    {
+      "studentId": "6183",
+      "routeId": "1",
+      "driverId": "1",
+      "parentId": "101",
+      "date": "2025-06-17",
+      "status": "ativo",
+      "paymentStatus": "pago",
+      "id": "OzviXzm"
+    },
+    {
+      "studentId": "6183",
+      "routeId": "4",
+      "driverId": "2",
+      "parentId": "101",
+      "date": "2025-06-17",
+      "status": "ativo",
+      "paymentStatus": "pago",
+      "id": "kjjMdpF"
+    },
+    {
+      "studentId": "6183",
+      "routeId": "1",
+      "driverId": "1",
+      "parentId": "101",
+      "date": "2025-06-18",
+      "status": "ativo",
+      "paymentStatus": "pago",
+      "id": "wMnZTZb"
+    }
+  ],
+  "avaliacoes": [
+    {
+      "routeId": 1,
+      "rating": 1,
+      "id": 8,
+      "userId": "101"
+    },
+    {
+      "routeId": 1,
+      "rating": 5,
+      "id": 9,
+      "userId": "102"
+    },
+    {
+      "routeId": "2",
+      "rating": 4,
+      "userId": "101",
+      "id": 10
+    },
+    {
+      "routeId": "3",
+      "rating": 3,
+      "userId": "101",
+      "id": 11
+    },
+    {
+      "routeId": "4",
+      "rating": 5,
+      "userId": "101",
+      "id": 12
+    }
+  ],
+  "avatars": [
+    {
+      "id": 1,
+      "url": "/images/avatars/avatar1.png"
+    },
+    {
+      "id": 2,
+      "url": "/images/avatars/avatar2.png"
+    },
+    {
+      "id": 3,
+      "url": "/images/avatars/avatar3.png"
+    },
+    {
+      "id": 4,
+      "url": "/images/avatars/avatar4.png"
+    },
+    {
+      "id": 5,
+      "url": "/images/avatars/avatar5.png"
+    },
+    {
+      "id": 6,
+      "url": "/images/avatars/avatar6.png"
+    },
+    {
+      "id": 7,
+      "url": "/images/avatars/avatar7.png"
+    }
+  ],
+  "motoristas": [
+    {
+      "id": 1,
+      "usuarioId": 102,
+      "chavePix": "admin@pix.com",
+      "cidade": "Belo Horizonte",
+      "tipoChavePixId": 1,
+      "realtimeLocation": {
+        "longLat": [
+          -43.9397233,
+          -19.9332786
+        ]
+      },
+      "picture": "/images/avatars/avatar1.png",
+      "name": "Tio João Transportes",
+      "contactEmail": "joao@email.com",
+      "phone": "(31) 99999-1111",
+      "status": "Disponível",
+      "cnh": "123456789",
+      "cnhValidity": "2028-10-20",
+      "emergencyContact": "(31) 99999-1112"
+    },
+    {
+      "id": 2,
+      "usuarioId": 106,
+      "chavePix": "leo@pix.com",
+      "cidade": "Belo Horizonte",
+      "tipoChavePixId": 2,
+      "realtimeLocation": {
+        "longLat": [
+          -43.93686898619681,
+          -19.932724834316584
+        ]
+      },
+      "picture": "/images/avatars/avatar2.png",
+      "name": "Transporte Seguro Ltda",
+      "contactEmail": "seguro@email.com",
+      "phone": "(31) 98888-2222",
+      "status": "De Férias",
+      "cnh": "987654321",
+      "cnhValidity": "2026-05-15",
+      "emergencyContact": "(31) 98888-2223"
+    }
+  ],
+  "tipoChavesPix": [
+    {
+      "id": 1,
+      "tipo": "email"
+    },
+    {
+      "id": 2,
+      "tipo": "cpf"
+    },
+    {
+      "id": 3,
+      "tipo": "telefone"
+    },
+    {
+      "id": 4,
+      "tipo": "aleatoria"
+    }
+  ]
+}
