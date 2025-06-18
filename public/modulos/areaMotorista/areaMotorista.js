@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    const API_BASE_URL = 'http://localhost:3000';
+    const API_BASE_URL = 'https://van-connect-api.onrender.com';
     const driverId = currentUser.driverId;
 
     let driverData = null;

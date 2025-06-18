@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const filterForm = document.getElementById('filter-form');
     const clearFiltersButton = document.getElementById('clear-filters-button');
     const sortSelect = document.getElementById('sort-select');
-    const API_BASE_URL = 'http://localhost:3000';
+    const API_BASE_URL = 'https://van-connect-api.onrender.com';
 
     // **ALTERAÇÃO**: Obter o usuário atual para tornar as avaliações específicas.
     const currentUser = Auth.getCurrentUser();

@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const Auth = {
     // Endereços da aplicação
-    API_BASE_URL: '',
+    API_BASE_URL: 'https://van-connect-api.onrender.com/',
     LOGIN_PAGE: '/modulos/login/login.html',
     DEFAULT_REDIRECT_PAGE: '/index.html',
     DRIVER_DASHBOARD: '/modulos/areaMotorista/areaMotorista.html',

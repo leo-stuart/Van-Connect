@@ -1,7 +1,7 @@
 // Arquivo: codigo/public/modulos/meus-contratos/meus-contratos.js
 document.addEventListener("DOMContentLoaded", () => {
     // --- 1. CONFIGURAÇÃO E AUTENTICAÇÃO ---
-    const API_BASE_URL = "http://localhost:3000";
+    const API_BASE_URL = "https://van-connect-api.onrender.com";
     Auth.protectPage(); // Garante que apenas usuários logados acessem
     const currentUser = Auth.getCurrentUser();
     

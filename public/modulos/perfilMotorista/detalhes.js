@@ -1,6 +1,6 @@
 // Arquivo: codigo/public/modulos/perfilMotorista/detalhes.js
 document.addEventListener("DOMContentLoaded", () => {
-    const API_BASE_URL = "http://localhost:3000";
+    const API_BASE_URL = "https://van-connect-api.onrender.com";
     Auth.setupHeader("nav-links-container");
 
     const profileContent = document.getElementById("profile-content");

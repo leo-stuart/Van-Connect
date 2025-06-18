@@ -477,7 +477,7 @@
   "schools": [
     {
       "id": "1",
-      "name": "Colégio ABC"
+      "name": "Colégio Bernoulli"
     },
     {
       "id": "2",
@@ -597,7 +597,7 @@
       "userId": "102"
     },
     {
-      "routeId": "2",
+      "routeId": "1",
       "rating": 4,
       "userId": "101",
       "id": 10
@@ -609,7 +609,7 @@
       "id": 11
     },
     {
-      "routeId": "4",
+      "routeId": "1",
       "rating": 5,
       "userId": "101",
       "id": 12

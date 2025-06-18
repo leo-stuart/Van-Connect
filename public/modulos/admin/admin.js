@@ -1,7 +1,7 @@
 // Arquivo: admin.js (Versão Corrigida e Funcional)
 document.addEventListener('DOMContentLoaded', () => {
     // 1. --- AUTHENTICATION & INITIALIZATION ---
-    const API_URL = 'http://localhost:3000';
+    const API_URL = 'https://van-connect-api.onrender.com';
     const currentUser = Auth.getCurrentUser();
 
     if (!currentUser || currentUser.role !== 'admin') {

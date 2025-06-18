@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    const API_BASE_URL = 'http://localhost:3000';
+    const API_BASE_URL = 'https://van-connect-api.onrender.com';
     const summaryContainer = document.getElementById('summary-cards-container');
     const studentsContainer = document.getElementById('students-container');
     const parentProfileForm = document.getElementById('parent-profile-form');
