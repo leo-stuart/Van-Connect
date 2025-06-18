@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const Auth = {
     // Endereços da aplicação
-    API_BASE_URL: 'http://localhost:3000',
+    API_BASE_URL: '',
     LOGIN_PAGE: '/modulos/login/login.html',
     DEFAULT_REDIRECT_PAGE: '/index.html',
     DRIVER_DASHBOARD: '/modulos/areaMotorista/areaMotorista.html',

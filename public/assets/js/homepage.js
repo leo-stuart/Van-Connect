@@ -1,6 +1,5 @@
-
 document.addEventListener('DOMContentLoaded', () => {
-    const API_URL = 'http://localhost:3000/homepageContent';
+    const API_URL = '/homepageContent';
 
     async function fetchHomepageData() {
         try {
