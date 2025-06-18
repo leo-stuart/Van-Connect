@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Economia - VanConnect</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="calculadora.css">
+    <link rel="shortcut icon" href="../../images/Logo_VanConnect.png" type="image/webp">
+</head>
+<body>
+    <header class="site-header">
+    <div class="container header-container">
+        <a href="/index.html" class="logo-link">
+            <img src="/images/Logos/Logo_VanConnect.png" alt="Logo" class="logo-img">
+            <span class="logo-text">VanConnect</span>
+        </a>
+
+        <nav class="main-nav">
+            <ul id="nav-links-container"></ul>
+        </nav>
+
+        <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
+    </div>
+</header>
+    <main class="container" id="calculator-page">
+        <section class="calculator-section">
+            <div class="calculator-header">
+                <h1>Calcule sua Economia com VanConnect</h1>
+                <p>Preencha os campos abaixo para descobrir quanto tempo e dinheiro você pode economizar ao optar pelo transporte escolar compartilhado.</p>
+            </div>
+            <div class="calculator-body">
+                <form id="calculator-form">
+                    <div class="calculator-form-grid">
+                        <div class="form-group">
+                            <label for="distancia">Distância diária (ida e volta)</label>
+                            <input type="number" id="distancia" class="form-control" placeholder="em km" required step="0.1">
+                        </div>
+                        <div class="form-group">
+                            <label for="consumo">Consumo do seu carro (km/l)</label>
+                            <input type="number" id="consumo" class="form-control" placeholder="ex: 10" required step="0.1">
+                        </div>
+                        <div class="form-group">
+                            <label for="preco_combustivel">Preço do combustível (R$/l)</label>
+                            <input type="number" id="preco_combustivel" class="form-control" placeholder="ex: 5.80" required step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label for="dias_letivos">Dias letivos no mês</label>
+                            <input type="number" id="dias_letivos" class="form-control" value="22" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="custo_van">Custo mensal da van (R$)</label>
+                            <input type="number" id="custo_van" class="form-control" placeholder="ex: 350.00" required step="0.01">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="cta-button">Calcular Economia</button>
+                    </div>
+                </form>
+
+                <div id="calculator-results" class="results-section" style="display: none;">
+                    <h2>Resultados da sua Simulação</h2>
+                    <div id="results-content" class="results-grid">
+                        </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer-bottom">
+        <div class="container">
+            <p>&copy; <span id="current-year">2025</span> VanConnect. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="../login/login.js"></script>
+    <script src="./calculadora.js"></script>
+</body>
+</html>

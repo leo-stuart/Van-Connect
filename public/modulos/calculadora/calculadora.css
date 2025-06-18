@@ -1,0 +1,146 @@
+@import url('../../assets/css/style.css');
+
+#calculator-page {
+    padding-top: 50px;
+    padding-bottom: 60px;
+}
+
+.calculator-section {
+    background-color: var(--card-background);
+    padding: 40px 50px;
+    border-radius: var(--border-radius-md);
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.calculator-header h1 {
+    color: var(--primary-color);
+    font-size: 2.2rem;
+}
+
+.calculator-header p {
+    font-size: 1.1rem;
+    color: var(--text-muted-color);
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+}
+
+/* --- Estilos do Formulário --- */
+.calculator-form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--text-muted-color);
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--card-elements-background);
+    color: var(--text-color);
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 196, 0, 0.25);
+}
+
+.form-actions {
+    text-align: center;
+}
+
+/* --- Seção de Resultados --- */
+.results-section {
+    margin-top: 50px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border-color);
+}
+
+.results-section h2 {
+    margin-bottom: 1.5em;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.result-card {
+    background-color: var(--card-elements-background);
+    padding: 25px;
+    border-radius: var(--border-radius-md);
+    border-left: 4px solid var(--accent-color);
+}
+
+.result-card.economy {
+    border-left-color: #4CAF50;
+    /* Verde para economia */
+}
+
+.result-card.extra-cost {
+    border-left-color: var(--secondary-color);
+    /* Vermelho para custo extra */
+}
+
+.result-card.carbon {
+    border-left-color: var(--primary-color);
+}
+
+
+.result-card h3 {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.result-card .result-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.result-card.extra-cost .result-value {
+    color: var(--secondary-color);
+}
+
+.result-card.economy .result-value {
+    color: #4CAF50;
+}
+
+
+.result-card .result-description {
+    font-size: 0.9rem;
+    color: var(--text-muted-color);
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .calculator-section {
+        padding: 30px 20px;
+    }
+
+    .calculator-header h1 {
+        font-size: 1.8rem;
+    }
+}

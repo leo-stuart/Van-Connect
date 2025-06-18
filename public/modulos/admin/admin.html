@@ -1,0 +1,321 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - VanConnect</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="admin.css">
+  <link rel="shortcut icon" href="../../images/Logos/Logo_VanConnect.png" type="image/webp">
+</head>
+<body>
+  <header class="site-header">
+        <script src="../../modulos/login/login.js"></script>
+        <div class="container header-container">
+            <a href="/index.html" class="logo-link">
+                <img src="../../images/Logos/Logo_VanConnect.png" alt="Logo" class="logo-img">
+                <span class="logo-text">VanConnect</span>
+            </a>
+
+            <nav class="main-nav">
+                <ul id="nav-links-container"></ul>
+            </nav>
+
+            <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
+        </div>
+    </header>
+  <div class="container-fluid">
+    <ul class="nav nav-tabs" id="adminTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="drivers-tab" data-bs-toggle="tab" data-bs-target="#drivers-tab-pane" type="button" role="tab"><i class="bi bi-person-steering"></i> Motoristas</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="vehicles-tab" data-bs-toggle="tab" data-bs-target="#vehicles-tab-pane" type="button" role="tab"><i class="bi bi-truck-front-fill"></i> Veículos</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="routes-tab" data-bs-toggle="tab" data-bs-target="#routes-tab-pane" type="button" role="tab"><i class="bi bi-sign-turn-right-fill"></i> Rotas</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="schools-tab" data-bs-toggle="tab" data-bs-target="#schools-tab-pane" type="button" role="tab"><i class="bi bi-building"></i> Escolas</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="users-tab" data-bs-toggle="tab" data-bs-target="#users-tab-pane" type="button" role="tab"><i class="bi bi-person-badge-fill"></i> Usuários</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="students-tab" data-bs-toggle="tab" data-bs-target="#students-tab-pane" type="button" role="tab"><i class="bi bi-person-lines-fill"></i> Alunos</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="contracts-tab" data-bs-toggle="tab" data-bs-target="#contracts-tab-pane" type="button" role="tab"><i class="bi bi-file-earmark-text-fill"></i> Contratos</button>
+      </li>
+    </ul>
+
+    <div class="tab-content" id="adminTabContent">
+      <div class="tab-pane fade show active" id="drivers-tab-pane" role="tabpanel">
+        <div class="crud-header">
+          <h2>Gerenciar Motoristas</h2>
+          <button id="btn-new-driver" class="btn cta-button"><i class="bi bi-plus-circle"></i> Novo Motorista</button>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-dark table-hover">
+            <thead>
+              <tr><th>ID</th><th>Nome</th><th>Email</th><th>Telefone</th><th>Status</th><th class="text-end">Ações</th></tr>
+            </thead>
+            <tbody id="drivers-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="tab-pane fade" id="vehicles-tab-pane" role="tabpanel">
+        <div class="crud-header">
+          <h2>Gerenciar Veículos</h2>
+          <button id="btn-new-vehicle" class="btn cta-button"><i class="bi bi-plus-circle"></i> Novo Veículo</button>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-dark table-hover">
+            <thead>
+              <tr><th>ID</th><th>Modelo</th><th>Placa</th><th>Capacidade</th><th>Motorista</th><th class="text-end">Ações</th></tr>
+            </thead>
+            <tbody id="vehicles-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="tab-pane fade" id="routes-tab-pane" role="tabpanel">
+         <div class="crud-header">
+          <h2>Gerenciar Rotas</h2>
+          <button id="btn-new-route" class="btn cta-button"><i class="bi bi-plus-circle"></i> Nova Rota</button>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-dark table-hover">
+            <thead>
+              <tr><th>ID</th><th>Nome da Rota</th><th>Turno</th><th>Preço</th><th>Motorista</th><th class="text-end">Ações</th></tr>
+            </thead>
+            <tbody id="routes-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="tab-pane fade" id="schools-tab-pane" role="tabpanel">
+        <div class="crud-header">
+          <h2>Gerenciar Escolas</h2>
+          <button id="btn-new-school" class="btn cta-button"><i class="bi bi-plus-circle"></i> Nova Escola</button>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-dark table-hover">
+            <thead>
+              <tr><th>ID</th><th>Nome da Escola</th><th>Logo URL</th><th class="text-end">Ações</th></tr>
+            </thead>
+            <tbody id="schools-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+      
+      <div class="tab-pane fade" id="users-tab-pane" role="tabpanel">
+        <div class="crud-header">
+          <h2>Gerenciar Usuários</h2>
+          <button id="btn-new-user" class="btn cta-button"><i class="bi bi-plus-circle"></i> Novo Usuário</button>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-dark table-hover">
+            <thead>
+              <tr><th>ID</th><th>Nome</th><th>Login</th><th>Email</th><th>Tipo</th><th class="text-end">Ações</th></tr>
+            </thead>
+            <tbody id="users-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="tab-pane fade" id="students-tab-pane" role="tabpanel">
+        <div class="crud-header">
+          <h2>Gerenciar Alunos</h2>
+          <button id="btn-new-student" class="btn cta-button"><i class="bi bi-plus-circle"></i> Novo Aluno</button>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-dark table-hover">
+            <thead>
+              <tr><th>ID</th><th>Nome</th><th>Responsável</th><th>Escola</th><th class="text-end">Ações</th></tr>
+            </thead>
+            <tbody id="students-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="tab-pane fade" id="contracts-tab-pane" role="tabpanel">
+        <div class="crud-header">
+          <h2>Gerenciar Contratos</h2>
+          <button id="btn-new-contract" class="btn cta-button"><i class="bi bi-file-earmark-text-fill"></i> Novo Contrato</button>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-dark table-hover">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Aluno</th>
+                <th>Responsável</th>
+                <th>Rota</th>
+                <th>Motorista</th>
+                <th>Status</th>
+                <th>Pagamento</th>
+                <th class="text-end">Ações</th>
+              </tr>
+            </thead>
+            <tbody id="contracts-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="driver-modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="driver-modal-title">Novo Motorista</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="driver-form">
+            <input type="hidden" id="driver-id">
+            <div class="mb-3"><label for="driver-name" class="form-label">Nome</label><input type="text" class="form-control" id="driver-name" required></div>
+            <div class="mb-3"><label for="driver-email" class="form-label">Email</label><input type="email" class="form-control" id="driver-email" required></div>
+            <div class="mb-3"><label for="driver-phone" class="form-label">Telefone</label><input type="tel" class="form-control" id="driver-phone" required></div>
+            <div class="mb-3"><label for="driver-status" class="form-label">Status</label><select id="driver-status" class="form-select" required><option value="Ativo">Ativo</option><option value="De Férias">De Férias</option><option value="Inativo">Inativo</option></select></div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" id="save-driver-button" class="btn btn-info">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="vehicle-modal" tabindex="-1">
+     <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="vehicle-modal-title">Editar Veículo</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="vehicle-form">
+            <input type="hidden" id="vehicle-id">
+            <div class="mb-3"><label for="vehicle-model" class="form-label">Modelo</label><input type="text" class="form-control" id="vehicle-model" required></div>
+            <div class="mb-3"><label for="vehicle-plate" class="form-label">Placa</label><input type="text" class="form-control" id="vehicle-plate" required></div>
+            <div class="mb-3"><label for="vehicle-capacity" class="form-label">Capacidade</label><input type="number" class="form-control" id="vehicle-capacity" required></div>
+            <div class="mb-3"><label for="vehicle-driver-id" class="form-label">Motorista</label><select class="form-select" id="vehicle-driver-id" required></select></div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" id="save-vehicle-button" class="btn btn-info">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="route-modal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header"><h5 class="modal-title" id="route-modal-title">Nova Rota</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+        <div class="modal-body">
+          <form id="route-form" class="p-4">
+            <input type="hidden" id="route-id">
+            <div class="row">
+              <div class="col-md-6 mb-3"><label for="route-name" class="form-label">Nome da Rota</label><input type="text" class="form-control" id="route-name" required></div>
+              <div class="col-md-6 mb-3"><label for="route-driver-id" class="form-label">Motorista</label><select class="form-select" id="route-driver-id" required></select></div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 mb-3"><label for="route-vehicle-id" class="form-label">Veículo</label><select class="form-select" id="route-vehicle-id" required></select></div>
+              <div class="col-md-4 mb-3"><label for="route-shift" class="form-label">Turno</label><select id="route-shift" class="form-select" required><option value="Manhã">Manhã</option><option value="Tarde">Tarde</option><option value="Noite">Noite</option></select></div>
+              <div class="col-md-4 mb-3"><label for="route-price" class="form-label">Preço (R$)</label><input type="number" step="0.01" class="form-control" id="route-price" required></div>
+            </div>
+            <div class="mb-3"><label for="route-neighborhoods" class="form-label">Bairros (separados por vírgula)</label><input type="text" class="form-control" id="route-neighborhoods"></div>
+            <div class="mb-3"><label class="form-label">Escolas Atendidas</label><div id="route-schools-checkboxes" class="border rounded p-2" style="max-height: 150px; overflow-y: auto;"></div></div>
+          </form>
+        </div>
+        <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button><button type="button" id="save-route-button" class="btn btn-info">Salvar</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="school-modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header"><h5 class="modal-title" id="school-modal-title">Nova Escola</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+        <div class="modal-body">
+          <form id="school-form">
+            <input type="hidden" id="school-id">
+            <div class="mb-3"><label for="school-name" class="form-label">Nome da Escola</label><input type="text" class="form-control" id="school-name" required></div>
+            <div class="mb-3"><label for="school-logo" class="form-label">URL do Logo</label><input type="text" class="form-control" id="school-logo"></div>
+          </form>
+        </div>
+        <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button><button type="button" id="save-school-button" class="btn btn-info">Salvar</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="user-modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header"><h5 class="modal-title" id="user-modal-title">Novo Usuário</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+        <div class="modal-body">
+          <form id="user-form">
+            <input type="hidden" id="user-id">
+            <div class="mb-3"><label for="user-name" class="form-label">Nome</label><input type="text" class="form-control" id="user-name" required></div>
+            <div class="mb-3"><label for="user-login" class="form-label">Login</label><input type="text" class="form-control" id="user-login" required></div>
+            <div class="mb-3"><label for="user-email" class="form-label">Email</label><input type="email" class="form-control" id="user-email" required></div>
+            <div class="mb-3"><label for="user-phone" class="form-label">Telefone</label><input type="tel" class="form-control" id="user-phone"></div>
+            <div class="mb-3"><label for="user-role" class="form-label">Tipo</label><select id="user-role" class="form-select" required><option value="parent">Responsável</option><option value="driver">Motorista</option><option value="admin">Admin</option></select></div>
+            <div class="mb-3"><label for="user-password" class="form-label">Senha (deixe em branco para não alterar)</label><input type="password" class="form-control" id="user-password"></div>
+          </form>
+        </div>
+        <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button><button type="button" id="save-user-button" class="btn btn-info">Salvar</button></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade" id="student-modal" tabindex="-1">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header"><h5 class="modal-title" id="student-modal-title">Novo Aluno</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+              <div class="modal-body">
+                  <form id="student-form">
+                      <input type="hidden" id="student-id">
+                      <div class="mb-3"><label for="student-name" class="form-label">Nome do Aluno</label><input type="text" class="form-control" id="student-name" required></div>
+                      <div class="mb-3"><label for="student-parent-id" class="form-label">Responsável</label><select class="form-select" id="student-parent-id" required></select></div>
+                      <div class="mb-3"><label for="student-school" class="form-label">Escola</label><select class="form-select" id="student-school" required></select></div>
+                      <div class="mb-3"><label for="student-class" class="form-label">Turma</label><input type="text" class="form-control" id="student-class"></div>
+                      <div class="mb-3"><label for="student-photo-url" class="form-label">URL da Foto</label><input type="text" class="form-control" id="student-photo-url"></div>
+                  </form>
+              </div>
+              <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button><button type="button" id="save-student-button" class="btn btn-info">Salvar</button></div>
+          </div>
+      </div>
+  </div>
+
+  <div class="modal fade" id="contract-modal" tabindex="-1">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header"><h5 class="modal-title" id="contract-modal-title">Novo Contrato</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+              <div class="modal-body">
+                  <form id="contract-form">
+                      <input type="hidden" id="contract-id">
+                      <div class="mb-3"><label for="contract-student-id" class="form-label">Aluno</label><select class="form-select" id="contract-student-id" required></select></div>
+                      <div class="mb-3"><label for="contract-route-id" class="form-label">Rota</label><select class="form-select" id="contract-route-id" required></select></div>
+                      <div class="mb-3"><label for="contract-date" class="form-label">Data do Contrato</label><input type="date" class="form-control" id="contract-date" required></div>
+                      <div class="mb-3"><label for="contract-status" class="form-label">Status</label><select id="contract-status" class="form-select" required><option value="ativo">Ativo</option><option value="pendente">Pendente</option><option value="cancelado">Cancelado</option></select></div>
+                      <div class="mb-3"><label for="contract-payment-status" class="form-label">Pagamento</label><select id="contract-payment-status" class="form-select" required><option value="pago">Pago</option><option value="pendente">Pendente</option><option value="atrasado">Atrasado</option></select></div>
+                  </form>
+              </div>
+              <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button><button type="button" id="save-contract-button" class="btn btn-info">Salvar</button></div>
+          </div>
+      </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../login/login.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+/* Localizador Module Specific Styles */
+
+#main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+#map {
+    width: 65%;
+    height: 80vh;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.info {
+    width: 30%;
+    height: 80vh;
+    margin: 20px auto;
+    padding: 20px;
+    background: var(--card-elements-background);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--border-color);
+}
+
+.driver-info {
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.info-name {
+    text-align: center;
+    font-size: 1.2em;
+    color: var(--text-color);
+}
+
+.info-name p {
+    margin: 10px 0;
+    color: var(--text-muted-color);
+}
+
+.info-name p:first-child {
+    color: var(--primary-color);
+    font-weight: 500;
+    font-size: 1.3em;
+}
+
+#image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#image img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    transition: transform 0.3s ease;
+}
+
+#image img:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    #main {
+        flex-direction: column;
+    }
+
+    #map {
+        width: 100%;
+        height: 50vh;
+    }
+
+    .info {
+        width: 100%;
+        height: auto;
+        margin-top: 0;
+    }
+} 

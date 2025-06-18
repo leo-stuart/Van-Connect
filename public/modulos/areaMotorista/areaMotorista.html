@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área do Motorista - VanConnect</title>
+    <link rel="stylesheet" href="./areaMotorista.css">
+    <link rel="shortcut icon" href="../../images/Logo_VanConnect.png" type="image/webp">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <script src="../../modulos/login/login.js"></script>
+        <div class="container header-container">
+            <a href="/index.html" class="logo-link">
+                <img src="../../images/Logos/Logo_VanConnect.png" alt="Logo" class="logo-img">
+                <span class="logo-text">VanConnect</span>
+            </a>
+
+            <nav class="main-nav">
+                <ul id="nav-links-container"></ul>
+            </nav>
+
+            <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
+        </div>
+    </header>
+    </header>
+
+    <main class="driver-dashboard-main">
+        <div class="container">
+            <h1 id="driver-welcome">Carregando...</h1>
+
+            <section id="profile-section" class="dashboard-section">
+                <div class="profile-header">
+                    <div class="profile-picture">
+                        <img id="profile-img" src="../../images/avatars/avatar_placeholder.png" alt="Foto do Motorista">
+                        <button id="change-photo-btn" class="change-photo-btn" title="Trocar Foto">✏️</button>
+                    </div>
+                    <div class="profile-title">
+                        <h2>Meu Perfil</h2>
+                        <p>Mantenha seus dados sempre atualizados.</p>
+                    </div>
+                </div>
+                <form id="profile-form">
+                    <div class="form-grid">
+                        <div class="form-group"><label for="profile-name">Nome Completo</label><input type="text"
+                                id="profile-name" class="form-control" required></div>
+                        <div class="form-group"><label for="profile-email">Email de Contato</label><input type="email"
+                                id="profile-email" class="form-control" required></div>
+                        <div class="form-group"><label for="profile-phone">Telefone Principal</label><input type="tel"
+                                id="profile-phone" class="form-control" required></div>
+                        <div class="form-group"><label for="profile-cnh">Nº da CNH</label><input type="text"
+                                id="profile-cnh" class="form-control"></div>
+                        <div class="form-group"><label for="profile-cnh-validity">Validade da CNH</label><input
+                                type="date" id="profile-cnh-validity" class="form-control"></div>
+                        <div class="form-group"><label for="profile-emergency-contact">Contato de
+                                Emergência</label><input type="tel" id="profile-emergency-contact" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="cta-button">Salvar Alterações no Perfil</button>
+                    </div>
+                </form>
+            </section>
+
+            <section id="fleet-section" class="dashboard-section">
+                <div class="section-header">
+                    <h2>Minha Frota de Veículos</h2>
+                    <button id="add-vehicle-btn" class="cta-button">Adicionar Novo Veículo</button>
+                </div>
+                <div id="fleet-container" class="item-list-container">
+                    <p class="loading-message">Carregando frota...</p>
+                </div>
+            </section>
+
+            <section id="routes-section" class="dashboard-section">
+                <div class="section-header">
+                    <h2>Minhas Rotas</h2>
+                    <button id="add-route-btn" class="cta-button">Adicionar Nova Rota</button>
+                </div>
+                <div id="driver-routes-container" class="item-list-container">
+                    <p class="loading-message">Carregando rotas...</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="vehicle-form-modal" class="modal-overlay"></div>
+    <div id="route-form-modal" class="modal-overlay"></div>
+    <div id="occupancy-modal" class="modal-overlay"></div>
+    
+    <div id="avatar-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Escolha seu Avatar</h2>
+            <div id="avatar-grid" class="avatar-grid-container">
+                <p class="loading-message">Carregando avatares...</p>
+            </div>
+            <div class="form-actions">
+                <button type="button" id="avatar-cancel-btn" class="cancel-button">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer-bottom">
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> VanConnect. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="../login/login.js"></script>
+    <script src="./areaMotorista.js"></script>
+</body>
+
+</html>

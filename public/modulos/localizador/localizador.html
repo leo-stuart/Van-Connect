@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Localizador</title>
+    <link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="localizador.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="../../modulos/login/login.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <script src="../../modulos/login/login.js"></script>
+        <div class="container header-container">
+            <a href="/index.html" class="logo-link">
+                <img src="../../images/Logos/Logo_VanConnect.png" alt="Logo" class="logo-img">
+                <span class="logo-text">VanConnect</span>
+            </a>
+
+            <nav class="main-nav">
+                <ul id="nav-links-container"></ul>
+            </nav>
+
+            <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
+        </div>
+    </header>
+    <main id="main">
+        <div id="map"></div>
+        <div class="info">
+            <div id="image">
+                <img src="" alt="">
+            </div>
+            <div class="driver-info">
+                <div class="info-name">
+                    <p id="van-driver">Lucas</p>
+                    <p id="van-model">Mercedes</p>
+                    <p id="route-name">...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="localizador.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            Auth.setupHeader('nav-links-container');
+        });
+    </script>
+</body>
+</html>

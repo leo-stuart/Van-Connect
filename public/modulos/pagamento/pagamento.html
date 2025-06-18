@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento PIX</title>
+    <!-- <link rel="stylesheet" type="text/css" href="../../assets/css/style.css"> -->
+    <link rel="stylesheet" type="text/css" href="../../assets/css/main.css">
+    <link rel="shortcut icon" href="../../images/Logos/Logo_VanConnect.webp" type="image/webp">
+</head>
+
+<body>
+    <div class="container">
+        <div class="back-button-container">
+            <a href="#" id="back-to-details-link" class="back-link">&larr; Voltar para o Perfil do Motorista</a>
+        </div>
+        <h1>Pagamento via PIX</h1>
+
+        <div class="status-container">
+            <p id="status">Carregando...</p>
+        </div>
+
+        <div id="erro"></div>
+
+        <div class="qr-container">
+            <h2>Escaneie o QR Code</h2>
+            <div class="mesa-info">
+                <div id="qrcode"></div>
+            </div>
+
+            <div class="pix-info">
+                <div class="mesa">
+                    <div>
+                        <p>Valor: </p>
+                        <div id="valor-pix" class="valor">Carregando...</div>
+                    </div>
+                    <div>
+                        <p>Tempo Restante: </p>
+                        <div id="timer">Carregando...</div>
+                    </div>
+                </div>
+                <p>Chave PIX QRCode: </p>
+                <div class="pix">
+                    <div class="chave-pix-class">
+                        <span id="chave-pix">Carregando...</span>
+                    </div>
+                    <button onclick="copyToClipboard()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+                    </svg></button>
+                </div>
+            </div>
+            <button id="btn-pagamento">Pagamento Concluído</button>
+            <div id="mensagem-sucesso" style="display:none; color: green; font-weight: bold;">
+                ✅ Pagamento confirmado com sucesso!
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script src="../login/login.js"></script>
+    <script src="gerar_qr_code.js"></script>
+</body>
+
+</html>

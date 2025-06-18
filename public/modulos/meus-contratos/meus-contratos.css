@@ -1,0 +1,176 @@
+/* Arquivo: codigo/public/modulos/meus-contratos/meus-contratos.css */
+@import url('../../assets/css/style.css');
+
+main section:nth-child(even) {
+    background-color: var(--background-color);
+}
+
+#my-contracts-page {
+    padding-top: 20px;
+    padding-bottom: 60px;
+    max-width: 1200px;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.page-header h1 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    font-size: 1.1rem;
+    color: var(--text-muted-color);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contracts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.contract-card {
+    background-color: var(--card-elements-background);
+    border-radius: var(--border-radius-md);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    border-left: 4px solid var(--primary-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--box-shadow-light);
+}
+
+.contract-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.contract-card h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.contract-details {
+    flex-grow: 1; 
+}
+
+.contract-details p {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: var(--text-muted-color);
+    line-height: 1.6;
+}
+
+.contract-details p strong {
+    color: var(--text-color);
+    font-weight: 500;
+    margin-right: 8px;
+}
+
+.contract-footer {
+    margin-top: auto; /* Garante que o rodapé e os botões fiquem alinhados na base */
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--text-muted-color);
+}
+
+.contract-footer .status {
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: var(--border-radius-md);
+    text-transform: capitalize;
+    font-size: 0.85rem;
+}
+
+.status-ativo {
+    background-color: rgba(46, 204, 113, 0.15);
+    color: #2ecc71; 
+}
+
+.status-inativo,
+.status-pendente {
+    background-color: rgba(243, 156, 18, 0.15);
+    color: #f39c12; 
+}
+
+.status-cancelado {
+    background-color: rgba(231, 76, 60, 0.15);
+    color: #e74c3c; 
+}
+
+.no-contracts-message, .loading-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    background-color: var(--card-elements-background);
+    padding: 40px;
+    border-radius: var(--border-radius-md);
+}
+
+/* --- ESTILOS DOS BOTÕES (NOVO) --- */
+
+/* Container para os botões de ação */
+.contract-actions {
+    display: flex;
+    gap: 10px; /* Espaçamento entre os botões */
+    margin-top: 20px; /* Margem acima dos botões */
+}
+
+/* Estilo base para ambos os botões */
+.btn-acompanhar,
+.btn-finalizar {
+    flex-grow: 1; /* Faz com que ambos os botões ocupem o espaço disponível igualmente */
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+/* Estilo específico para o botão "Acompanhar" */
+.btn-acompanhar {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+.btn-acompanhar:hover {
+    background-color: #FFD340; /* Amarelo mais claro no hover */
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-dark);
+}
+
+/* Estilo específico para o botão "Finalizar Contrato" */
+.btn-finalizar {
+    background-color: var(--secondary-color); /* Cor vermelha de perigo/alerta */
+    color: var(--text-color);
+}
+
+.btn-finalizar:hover {
+    background-color: #e6224d; /* Vermelho mais escuro no hover */
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-dark);
+}
+
+/* Estilo para botões desabilitados */
+.btn-acompanhar:disabled {
+    background-color: var(--border-color);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}

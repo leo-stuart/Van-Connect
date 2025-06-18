@@ -1,0 +1,569 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* Definindo as variáveis CSS com base na paleta fornecida */
+:root {
+    /* Paleta de Cores Principal */
+    --primary-color: #FFC400;    /* Amarelo principal para destaques e títulos */
+    --secondary-color: #FF2D55;  /* Rosa/vermelho para botões de ação e alertas */
+    --accent-color: #2979FF;     /* Azul para links e elementos de interação secundários */
+
+    /* Cores do Tema Escuro */
+    --background-color: #121212; /* Cor de fundo principal da página */
+    --card-background: #1E1E1E;          /* Fundo para cards e seções destacadas */
+    --card-elements-background: #282828; /* Fundo para elementos dentro dos cards (ex: header) */
+
+    /* Cores de Texto */
+    --text-color: #FFFFFF;       /* Cor principal do texto */
+    --text-muted-color: #AAAAAA; /* Cor para textos secundários e placeholders */
+
+    /* Bordas e Sombras */
+    --border-color: #444444;     /* Cor para bordas e divisórias */
+    --border-radius-sm: 4px;     /* Raio de borda pequeno */
+    --border-radius-md: 8px;     /* Raio de borda médio */
+    --box-shadow-light: 0 4px 12px rgba(255, 255, 255, 0.08); /* Sombra clara */
+    --box-shadow-dark: 0 6px 15px rgba(0, 0, 0, 0.25);      /* Sombra escura */
+
+    /* Tipografia */
+    --font-family-base: 'Roboto', 'Arial', sans-serif; /* Fonte padrão do projeto */
+}
+/* Reset e Base */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family-base);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+.container { /* Classe container genérica, se usada no HTML */
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+a {
+    color: var(--accent-color); /* Links usam a cor de destaque azul */
+    text-decoration: none;
+}
+a:hover {
+    color: var(--primary-color); /* Hover usa a cor primária amarela */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Header */
+.site-header {
+    background-color: var(--card-elements-background); /* Usando um tom um pouco mais claro que o card-background geral */
+    padding: 1rem 0;
+    box-shadow: var(--box-shadow-dark);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.main-nav li {
+    margin-left: 25px;
+}
+
+.main-nav li:first-child {
+    margin-left: 0;
+}
+
+.main-nav a {
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 1rem;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+    text-decoration: none;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+.nav-button {
+    padding: 10px 20px;
+    border-radius: var(--border-radius-md);
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.nav-button.login-button {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+}
+.nav-button.login-button:hover {
+    background-color: #1A6ADF;
+    transform: translateY(-2px);
+    color: var(--text-color);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Botão CTA Genérico */
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: var(--border-radius-md);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+.cta-button:hover {
+    background-color: #FFD340;
+    transform: translateY(-3px);
+    color: var(--background-color);
+}
+
+/* Conteúdo Principal da Página de Filtros */
+.filter-main-content {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px 0;
+    gap: 30px;
+    /* Usando classe container para centralizar */
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+/* Seção Lateral de Filtros (Aside) */
+.filter-section {
+    flex: 1;
+    min-width: 260px;
+    max-width: 320px;
+    background-color: var(--card-elements-background); /* Fundo da seção de filtros */
+    padding: 25px;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow-light);
+    height: fit-content;
+    align-self: flex-start;
+}
+
+.filter-section h2 {
+    margin-top: 0;
+    margin-bottom: 1.5em;
+    color: var(--primary-color); /* Título do filtro em amarelo */
+    border-bottom: 2px solid var(--secondary-color); /* Borda inferior em rosa/vermelho */
+    padding-bottom: 10px;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-icon {
+    width: 22px;
+    height: auto;
+}
+
+.filter-group {
+    margin-bottom: 18px;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--text-muted-color); /* Texto do label em cinza claro */
+}
+
+.filter-group input[type="text"],
+.filter-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color); /* Borda cinza escura */
+    border-radius: var(--border-radius-sm);
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--background-color); /* Fundo dos inputs igual ao body */
+    color: var(--text-color); /* Texto branco nos inputs */
+}
+.filter-group input[type="text"]::placeholder {
+    color: var(--text-muted-color);
+    opacity: 0.7;
+}
+
+.filter-group input[type="text"]:focus,
+.filter-group select:focus {
+    border-color: var(--primary-color); /* Borda amarela no foco */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 196, 0, 0.25); /* Sombra amarela suave no foco */
+}
+
+
+/* Grupo de Botões */
+.button-group {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#filter-form button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.3s ease;
+}
+#filter-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-light);
+}
+#filter-form button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+#filter-button { /* Botão de Filtrar */
+    background-color: var(--accent-color); /* Fundo azul */
+    color: var(--text-color); /* Texto branco */
+}
+#filter-button:hover {
+    background-color: #1A6ADF; /* Azul mais escuro */
+}
+
+#clear-filters-button { /* Botão de Limpar */
+    background-color: var(--border-color); /* Fundo cinza escuro */
+    color: var(--text-color); /* Texto branco */
+}
+#clear-filters-button:hover {
+    background-color: var(--text-muted-color); /* Cinza mais claro */
+    color: var(--background-color); /* Texto escuro no hover */
+}
+
+.button-icon {
+    width: 18px;
+    height: auto;
+    margin-right: 8px;
+}
+
+
+/* Seção de Resultados (Section) */
+#results-container {
+    flex: 3;
+    min-width: 300px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+/* Card Individual de Rota */
+.route-card {
+    background-color: var(--card-elements-background);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--primary-color);
+    border-radius: var(--border-radius-sm);
+    padding: 18px 20px;
+    box-shadow: var(--box-shadow-light);
+    transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out, border-left-color 0.25s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.4s ease-out forwards;
+    text-decoration: none;
+    color: inherit;
+}
+
+.route-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.1);
+    border-left-color: var(--secondary-color);
+}
+
+.route-card:hover h3 {
+    color: var(--secondary-color);
+}
+
+.route-card h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+}
+
+.route-card p {
+    margin: 6px 0;
+    font-size: 0.9rem;
+    color: var(--text-muted-color);
+    line-height: 1.5;
+}
+
+.route-card strong {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.route-card .price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-top: auto; /* Empurra o preço para baixo */
+    padding-top: 10px;
+    text-align: right;
+    align-self: flex-end;
+}
+
+.schools-list-summary {
+    list-style: none;
+    padding: 0;
+    margin: 4px 0;
+    font-size: 0.9rem;
+    color: var(--text-muted-color);
+}
+.schools-list-summary li {
+    display: inline;
+}
+.schools-list-summary li:not(:last-child)::after {
+    content: ', ';
+}
+
+/* Mensagens de Loading e Sem Resultados */
+.loading-message,
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 1.1em;
+    color: var(--text-muted-color);
+    padding: 50px 20px;
+    background-color: var(--card-elements-background);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow-light);
+}
+
+/* Footer da Página de Filtros */
+.site-footer-bottom-filter {
+    text-align: center;
+    padding: 25px 0;
+    background-color: var(--card-elements-background);
+    color: var(--text-muted-color);
+    margin-top: 50px;
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
+}
+.site-footer-bottom-filter p {
+    margin: 0;
+    color: inherit;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* User Dropdown Styles */
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.user-dropdown .nav-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: var(--border-radius-md);
+    transition: background-color 0.3s ease;
+}
+
+.user-dropdown .user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary-color);
+}
+
+.user-dropdown .nav-button:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.user-dropdown .fa-caret-down {
+    font-size: 0.8em;
+    margin-left: 4px;
+}
+
+.dropdown-content {
+    position: absolute;
+    right: 0;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    border-radius: var(--border-radius-md);
+    z-index: 1000;
+    margin-top: 8px;
+}
+
+.dropdown-content .dropdown-item {
+    color: black;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content .dropdown-item:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Show dropdown when the show class is present */
+.user-dropdown.show .dropdown-content {
+    display: block;
+}
+/* Ajustes Responsivos */
+@media (max-width: 900px) {
+    .filter-main-content {
+        flex-direction: column;
+        padding: 20px 0;
+        margin: 20px auto;
+    }
+    .filter-section {
+        max-width: none;
+        width: 100%;
+        align-self: stretch;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-nav {
+        display: none;
+    }
+    .menu-toggle {
+        display: block;
+    }
+    #results-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Animação de Entrada (Fade In) */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Classe auxiliar para acessibilidade (se usada no HTML) */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Estrelas de ranking */
+.stars {
+    color: #FFD700;
+    font-size: 1rem;
+    margin: 8px 0;
+}
+.stars-empty {
+    color: var(--text-muted-color);
+}
+.rating-interactive {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.rating-interactive .rating-label {
+    font-size: 0.9rem;
+    color: var(--text-muted-color);
+    margin-right: 5px;
+}
+
+.rating-interactive .star {
+    font-size: 1.1rem; /* Aumenta o tamanho das estrelas interativas */
+    color: var(--text-muted-color);
+    transition: color 0.2s, transform 0.2s;
+}
+
+.rating-interactive .star:hover,
+.rating-interactive .star.active {
+    color: #ffdd42; /* Cor da estrela ativa (hovered ou selecionada) */
+    transform: scale(1.2); /* Efeito de zoom na estrela ativa */
+}

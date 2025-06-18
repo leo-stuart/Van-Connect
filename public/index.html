@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VanConnect - Transporte Escolar Inteligente</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="shortcut icon" href="./images/Logos/Logo_VanConnect.png" type="image/webp">
+</head>
+<body>
+    <script src="./modulos/login/login.js"></script>
+<header class="site-header">
+    <div class="container header-container">
+        <a href="/index.html" class="logo-link">
+            <img src="./images/Logos/Logo_VanConnect.png" alt="Logo" class="logo-img">
+            <span class="logo-text">VanConnect</span>
+        </a>
+
+        <nav class="main-nav">
+            <ul id="nav-links-container"></ul>
+        </nav>
+
+        <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
+    </div>
+</header>
+
+    <main>
+        <!-- Seção Hero (Banner principal) -->
+        <section id="hero-section" class="hero">
+            <div class="container hero-content">
+                <h1 id="hero-title"></h1>
+                <p id="hero-subtitle"></p>
+                <a href="#" id="hero-cta-button" class="cta-button"></a>
+            </div>
+        </section>
+
+        <!-- Seção Como Funciona -->
+        <section id="how-it-works-section" class="how-it-works">
+            <div class="container">
+                <h2 id="how-title"></h2>
+                <div id="how-steps-container" class="steps-grid"></div>
+            </div>
+        </section>
+
+        <!-- Seção Rotas em Destaque -->
+        <section id="featured-routes-section" class="dark-section">
+            <div class="container">
+                <h2 id="featured-title"></h2>
+                <div id="featured-routes-container" class="routes-grid"></div>
+            </div>
+        </section>
+
+        <!-- Seção Depoimentos -->
+        <section id="testimonials-section" class="testimonials">
+            <div class="container">
+                <h2 id="testimonials-title"></h2>
+                <div id="testimonials-container" class="testimonials-slider"></div>
+                <div class="slider-controls">
+                    <button id="prev-testimonial" aria-label="Depoimento Anterior">&lt;</button>
+                    <button id="next-testimonial" aria-label="Próximo Depoimento">&gt;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Estatísticas -->
+        <section id="stats-section" class="stats">
+            <div class="container">
+                <h2 id="stats-title"></h2>
+                <div id="stats-container" class="stats-grid"></div>
+            </div>
+        </section>
+        
+        <!-- Seção CTA Calculadora -->
+    <section class="calculator-cta">
+    <div class="container cta-container">
+        <div class="cta-icon">
+            <img src="./images/Logos/calculadora1.png" alt="Ícone de Calculadora">
+        </div>
+        <div class="cta-text">
+            <h2>Planeje seus gastos sem surpresas</h2>
+            <p>Use nossa calculadora e tenha uma estimativa clara do investimento no transporte. É rápido, fácil e transparente!</p>
+        </div>
+        <div class="cta-action">
+            <a href="modulos/calculadora/calculadora.html" class="cta-button">Calcular Agora</a>
+        </div>
+    </div>
+</section>
+    </main>
+
+    <footer class="site-footer-bottom">
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> VanConnect.</p>
+        </div>
+    </footer>
+
+    <script src="./assets/js/homepage.js"></script>
+    
+    <script>
+        // Aguarda o carregamento completo do HTML antes de executar o script.
+        document.addEventListener('DOMContentLoaded', () => {
+            // Chama a função para configurar os links de navegação no cabeçalho
+            // com base no estado de login do usuário (logado ou deslogado).
+            Auth.setupHeader('nav-links-container');
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        });
+    </script>
+    
+</body>
+</html>

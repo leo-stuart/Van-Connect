@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VanConnect - Rastreamento do Motorista</title>
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css' rel='stylesheet' />
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .status-panel {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            min-width: 250px;
+        }
+
+        .status-panel h2 {
+            margin: 0 0 10px 0;
+            color: #333;
+            font-size: 18px;
+        }
+
+        .status-item {
+            margin: 8px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .status-label {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .status-value {
+            color: #333;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .van-marker {
+            background-image: url('../../images/Logos/van-icon.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+
+    <div class="status-panel">
+        <h2>Status da Van</h2>
+        <div class="status-item">
+            <span class="status-label">Status:</span>
+            <span class="status-value" id="status">Em movimento</span>
+        </div>
+        <div class="status-item">
+            <span class="status-label">Próxima parada:</span>
+            <span class="status-value" id="nextStop">-</span>
+        </div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const driverId = urlParams.get('driverId');
+        const routeId = urlParams.get('routeId'); // Ler o routeId
+
+        if (!driverId || !routeId) { // Verificar ambos
+            alert('ID do motorista ou da rota não fornecido!');
+            window.location.href = '/';
+        }
+
+        let map;
+        let vanMarker;
+        let currentRoute;
+
+        mapboxgl.accessToken = 'pk.eyJ1Ijoicm9tbWVsY2FybmVpcm8tcHVjIiwiYSI6ImNsb3ZuMTBoejBsd2gyamwzeDZzcWl5b3oifQ.VPWc3qoyon8Z_-URfKpvKg';
+        map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/light-v11',
+            center: [-43.9397233, -19.9332786],
+            zoom: 14,
+            pitch: 0,
+            bearing: 0
+        });
+
+        map.addControl(new mapboxgl.NavigationControl());
+
+        function createVanMarker(initialPosition) {
+            const el = document.createElement('div');
+            el.className = 'van-marker';
+
+            const popup = new mapboxgl.Popup({ offset: 25 })
+                .setHTML(`<h3>Van em Movimento</h3>`);
+
+            vanMarker = new mapboxgl.Marker(el)
+                .setLngLat(initialPosition)
+                .setPopup(popup)
+                .addTo(map);
+
+            map.flyTo({ center: initialPosition, zoom: 14, duration: 2000 });
+        }
+        
+        async function loadRouteData() {
+            try {
+                // CORREÇÃO: Usar o routeId para buscar os dados da rota
+                const response = await fetch(`/routes/${routeId}`);
+                if (!response.ok) throw new Error("Rota não encontrada");
+
+                currentRoute = await response.json();
+                
+                // O resto da lógica para desenhar os pontos no mapa...
+                 if (currentRoute.pickupPoints && Array.isArray(currentRoute.pickupPoints)) {
+                    currentRoute.pickupPoints.forEach((point, index) => {
+                       if(point.longLat) {
+                            const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(`<h3>Ponto de Coleta ${index + 1}</h3>`);
+                            new mapboxgl.Marker({ color: "orange" }).setLngLat(point.longLat).setPopup(popup).addTo(map);
+                       }
+                    });
+                 }
+                if(currentRoute.endPoint && currentRoute.endPoint.longLat){
+                    const popupEndPoint = new mapboxgl.Popup({ offset: 25 }).setHTML(`<h3>Ponto de Chegada</h3>`);
+                    new mapboxgl.Marker({ color: "red" }).setLngLat(currentRoute.endPoint.longLat).setPopup(popupEndPoint).addTo(map);
+                }
+
+            } catch (error) {
+                console.error('Error loading route data:', error);
+            }
+        }
+
+
+        map.on('load', async () => {
+            try {
+                // Pega a posição inicial do motorista para criar o marcador
+                const driverResponse = await fetch(`/drivers/${driverId}`);
+                const driver = await driverResponse.json();
+                const initialPosition = driver.realtimeLocation?.longLat || [-43.9397233, -19.9332786];
+                
+                createVanMarker(initialPosition);
+                await loadRouteData(); // Carrega os dados da rota para o mapa
+            } catch (error) {
+                 console.error('Error fetching initial position:', error);
+                 createVanMarker([-43.9397233, -19.9332786]); // Cria o marcador na posição padrão em caso de erro
+            }
+        });
+
+        // Atualiza a posição do motorista a cada 5 segundos
+        setInterval(() => {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const { longitude, latitude } = position.coords;
+                    const newLngLat = [longitude, latitude];
+
+                    if (vanMarker) {
+                        vanMarker.setLngLat(newLngLat);
+                    }
+
+                    const locationData = { realtimeLocation: { longLat: newLngLat } };
+
+                    // Envia a localização atualizada para o servidor
+                    fetch(`/drivers/${driverId}`, {
+                        method: 'PATCH', // Usar PATCH para atualização parcial é mais adequado
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(locationData)
+                    }).catch(err => console.error('Erro ao atualizar localização:', err));
+                },
+                (error) => {
+                    console.error('Erro ao obter localização:', error.message);
+                }
+            );
+        }, 5000);
+    </script>
+</body>
+
+</html>

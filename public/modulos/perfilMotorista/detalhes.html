@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Motorista - VanConnect</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="detalhes.css">
+    <link rel="shortcut icon" href="../../images/Logos/Logo_VanConnect.png" type="image/webp">
+</head>
+
+<body>
+   <header class="site-header">
+        <script src="../../modulos/login/login.js"></script>
+        <div class="container header-container">
+            <a href="/index.html" class="logo-link">
+                <img src="../../images/Logos/Logo_VanConnect.png" alt="Logo" class="logo-img">
+                <span class="logo-text">VanConnect</span>
+            </a>
+
+            <nav class="main-nav">
+                <ul id="nav-links-container"></ul>
+            </nav>
+
+            <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
+        </div>
+    </header>
+
+    <main class="container" id="driver-profile-page">
+        <section id="profile-content" class="profile-section">
+            <p class="loading-message">Carregando perfil do motorista...</p>
+        </section>
+
+        <section id="driver-routes-section">
+            <h2>Rotas Operadas</h2>
+            <div id="driver-routes-container">
+                <p class="loading-message">Carregando rotas...</p>
+            </div>
+        </section>
+    </main>
+
+    <div id="contract-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <form id="contract-form">
+                <h2>Contratar Serviço</h2>
+                <p>Você está contratando a rota <strong id="contract-route-name"></strong>.</p>
+                <div class="form-group">
+                    <label for="student-name">Nome Completo do Aluno</label>
+                    <input type="text" id="student-name" class="form-control" required
+                        placeholder="Nome do aluno a ser transportado">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-button">Cancelar</button>
+                    <button type="submit" class="cta-button">Confirmar Contrato</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="site-footer-bottom">
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> VanConnect. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="../login/login.js"></script>
+    <script src="detalhes.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            Auth.setupHeader('nav-links-container');
+        });
+    </script>
+</body>
+
+</html>

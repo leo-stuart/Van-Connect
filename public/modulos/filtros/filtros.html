@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtro de Rotas Escolares - VanConnect</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="../../images/Logos/Logo_VanConnect.png" type="image/webp">
+</head>
+
+<body>
+    <header class="site-header">
+        <script src="../../modulos/login/login.js"></script>
+        <div class="container header-container">
+            <a href="/index.html" class="logo-link">
+                <img src="../../images/Logos/Logo_VanConnect.png" alt="Logo" class="logo-img">
+                <span class="logo-text">VanConnect</span>
+            </a>
+
+            <nav class="main-nav">
+                <ul id="nav-links-container"></ul>
+            </nav>
+
+            <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
+        </div>
+    </header>
+
+    <main class="filter-main-content">
+        <aside class="filter-section">
+            <h2>
+                <img src="../../images/Logos/filtro/Logo_Filtro.png" alt="" class="filter-icon"> Filtrar Rotas
+            </h2>
+            <form id="filter-form" aria-labelledby="filter-heading">
+                <h2 id="filter-heading" class="visually-hidden">Formulário de Filtros</h2>
+                <div class="filter-group">
+                    <label for="bairro-input">Bairro de Partida/Destino:</label>
+                    <input type="text" id="bairro-input" placeholder="Ex: Savassi, Buritis">
+                </div>
+
+                <div class="filter-group">
+                    <label for="turno-select">Turno:</label>
+                    <select id="turno-select">
+                        <option value="">Todos os Turnos</option>
+                        <option value="Manhã">Manhã</option>
+                        <option value="Tarde">Tarde</option>
+                        <option value="Noite">Noite</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="escola-input">Escola Atendida:</label>
+                    <input type="text" id="escola-input" placeholder="Ex: Colégio ABC">
+                </div>
+
+                <div class="filter-group">
+                    <label for="sort-select">Ordenar por:</label>
+                    <select id="sort-select">
+                        <option value="default">Padrão</option>
+                        <option value="rating-desc">Melhor Avaliação</option>
+                        <option value="price-asc">Menor Preço</option>
+                        <option value="price-desc">Maior Preço</option>
+                    </select>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" id="filter-button">
+                        <img src="../../images/Logos/filtro/lupa_logo.jpg" alt="" class="button-icon"> Filtrar
+                    </button>
+                    <button type="button" id="clear-filters-button">
+                        <img src="../../images/Logos/filtro/limparLogo.jpg" alt="" class="button-icon"> Limpar Filtros
+                    </button>
+                </div>
+            </form>
+        </aside>
+
+        <section id="results-container" aria-live="polite">
+            <p class="loading-message">Carregando rotas...</p>
+        </section>
+    </main>
+
+    <div id="contract-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <form id="contract-form">
+                <h2 id="contract-modal-title">Contratar Serviço</h2>
+                <p>Você está contratando a rota <strong id="contract-route-name"></strong>.</p>
+                <div class="form-group">
+                    <label for="student-name">Nome Completo do Aluno</label>
+                    <input type="text" id="student-name" class="form-control" required
+                        placeholder="Nome do aluno a ser transportado">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-button">Cancelar</button>
+                    <button type="submit" class="cta-button">Confirmar Contrato</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer class="site-footer-bottom-filter">
+        <div class="container">
+            <p>&copy; <span id="current-year">ANO_ATUAL</span> VanConnect. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="./filtros.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            Auth.setupHeader('nav-links-container');
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+
+</html>

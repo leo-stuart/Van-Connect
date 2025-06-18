@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Contratos - VanConnect</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="meus-contratos.css">
+    <link rel="shortcut icon" href="../../images/Logo_VanConnect.webp" type="image/webp">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+   <header class="site-header">
+        <script src="../../modulos/login/login.js"></script>
+        <div class="container header-container">
+            <a href="/index.html" class="logo-link">
+                <img src="../../images/Logos/Logo_VanConnect.png" alt="Logo" class="logo-img">
+                <span class="logo-text">VanConnect</span>
+            </a>
+
+            <nav class="main-nav">
+                <ul id="nav-links-container"></ul>
+            </nav>
+
+            <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
+        </div>
+    </header>
+
+    <main class="container" id="my-contracts-page">
+        <section class="page-header">
+            <h1>Meus Contratos</h1>
+            <p>Aqui estão todos os contratos de transporte vinculados à sua conta.</p>
+        </section>
+
+        <section id="contracts-list-section">
+            <div id="contracts-container" class="contracts-container">
+                <div id="loading-message" class="loading-message">
+                    <p>Carregando seus contratos...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer-bottom">
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> VanConnect. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="../login/login.js"></script>
+    <script src="meus-contratos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            Auth.setupHeader('nav-links-container');
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+/* --- Estilos Gerais da Página de Perfil do Motorista --- */
+
+/* Importa os estilos base (variáveis de cor, fontes, etc.) do arquivo principal. */
+@import url("../../assets/css/style.css");
+
+/* Layout Principal da Página */
+#driver-profile-page {
+    padding-top: 40px;
+    padding-bottom: 60px;
+    opacity: 0;
+    /* Começa invisível para criar um efeito de fade-in */
+    transition: opacity 0.5s ease-in-out;
+    /* Define a animação de transição da opacidade */
+}
+
+/* Quando a classe 'loaded' é adicionada (via JavaScript), a página se torna visível. */
+#driver-profile-page.loaded {
+    opacity: 1;
+}
+
+/* --- Seção do Perfil --- */
+.profile-section {
+    background-color: var(--card-background);
+    padding: 30px 40px;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 50px;
+    border: 1px solid var(--border-color);
+}
+
+.profile-header {
+    display: flex;
+    /* Alinha os itens (foto e título) lado a lado */
+    align-items: center;
+    /* Centraliza verticalmente os itens do flex container */
+    gap: 25px;
+    /* Espaçamento entre a foto e o título */
+    flex-wrap: wrap;
+    /* Permite que os itens quebrem para a linha de baixo em telas menores */
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--border-color);
+    /* Linha divisória */
+}
+
+.profile-picture img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    /* Deixa a imagem redonda */
+    border: 4px solid var(--primary-color);
+    object-fit: cover;
+    /* Garante que a imagem preencha o espaço sem distorcer */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.profile-title h1 {
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+/* "Badge" ou etiqueta para o status do motorista */
+.profile-title .status-badge {
+    margin-top: 10px;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #fff;
+    display: inline-block;
+}
+
+/* Cores diferentes para cada status */
+.status-badge.status-ativo {
+    background-color: #4caf50;
+}
+
+/* Verde */
+.status-badge.status-de-férias {
+    background-color: #ff9800;
+}
+
+/* Laranja */
+.status-badge.status-afastado {
+    background-color: #757575;
+}
+
+/* Cinza */
+
+/* Detalhes do perfil (ex: frota de veículos) */
+.profile-details h4 {
+    color: var(--text-muted-color);
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.profile-details p {
+    background-color: var(--card-elements-background);
+    padding: 10px 15px;
+    border-radius: var(--border-radius-sm);
+    margin: 8px 0;
+    font-size: 1rem;
+    color: var(--text-color);
+    border-left: 3px solid var(--accent-color);
+    /* Destaque na lateral esquerda */
+}
+
+.profile-details p strong {
+    color: var(--text-muted-color);
+    margin-right: 8px;
+}
+
+/* --- Seção das Rotas do Motorista --- */
+#driver-routes-section h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+#driver-routes-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Cada rota ocupa uma linha */
+    gap: 20px;
+}
+
+/* Card individual para cada rota detalhada */
+.route-card-detailed {
+    background-color: var(--card-elements-background);
+    border-radius: var(--border-radius-sm);
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    /* Alinha informações à esquerda e ações à direita */
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    border: 1px solid transparent;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.route-card-detailed:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 20px rgba(255, 196, 0, 0.1);
+}
+
+.route-card-detailed .info {
+    flex-grow: 1;
+    /* Faz com que a seção de info ocupe o máximo de espaço possível */
+}
+
+.route-card-detailed h3 {
+    margin: 0 0 10px 0;
+    color: var(--primary-color);
+    font-size: 1.4rem;
+}
+
+.route-card-detailed p {
+    margin: 4px 0;
+    color: var(--text-muted-color);
+}
+
+.route-card-detailed p strong {
+    color: var(--text-color);
+}
+
+.route-card-detailed .actions {
+    flex-shrink: 0;
+    /* Impede que a seção de ações encolha */
+    text-align: right;
+}
+
+.route-card-detailed .price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.route-card-detailed .available-spots {
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.route-card-detailed .hire-btn {
+    font-weight: 700;
+    padding: 12px 25px;
+}
+
+/* Estilo para o botão de contratar quando estiver desabilitado (ex: lotado) */
+.route-card-detailed .hire-btn:disabled {
+    background-color: var(--border-color);
+    cursor: not-allowed;
+}
+
+/* --- Estilos do Modal de Contrato --- */
+.modal-overlay {
+    position: fixed;
+    /* Fica fixo na tela, mesmo com rolagem */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Fundo escuro semitransparente */
+    display: flex;
+    justify-content: center;
+    /* Centraliza o conteúdo horizontalmente */
+    align-items: center;
+    /* Centraliza o conteúdo verticalmente */
+    z-index: 2000;
+}
+
+.modal-content {
+    background-color: var(--card-background);
+    padding: 30px 40px;
+    border-radius: var(--border-radius-md);
+    width: 90%;
+    max-width: 500px;
+    border-top: 4px solid var(--primary-color);
+    /* Destaque no topo do modal */
+}
+
+/* --- Media Queries para Responsividade --- */
+/* Ajusta o layout para telas com largura máxima de 768px (tablets e celulares) */
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column;
+        /* Empilha a foto e o título verticalmente */
+        text-align: center;
+    }
+
+    .route-card-detailed {
+        flex-direction: column;
+        /* Empilha as seções de info e ações */
+        align-items: stretch;
+        /* Faz com que ocupem a largura total */
+    }
+
+    .route-card-detailed .actions {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .route-card-detailed .price {
+        margin-bottom: 10px;
+    }
+}
