@@ -157,6 +157,17 @@ app.get('/ping', (req, res) => {
     res.json({ status: 'ok', message: 'Servidor está online' });
 });
 
+// Add specific routes for homepage content and navigation
+app.get('/homepageContent', (req, res) => {
+    const db = require('./db/db.json');
+    res.json(db.homepageContent);
+});
+
+app.get('/navigation', (req, res) => {
+    const db = require('./db/db.json');
+    res.json(db.navigation);
+});
+
 // ----------------------------
 // Integração com JSON Server
 // ----------------------------
