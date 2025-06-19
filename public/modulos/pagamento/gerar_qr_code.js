@@ -31,8 +31,8 @@ function carregarDadosEGerarQRCode() {
     }
 
     Promise.all([
-            fetch(`http://localhost:3000/routes/${routeId}`).then(res => res.json()),
-            fetch(`http://localhost:3000/drivers/${driverId}`).then(res => res.json())
+            fetch(`https://van-connect-api.onrender.com/routes/${routeId}`).then(res => res.json()),
+            fetch(`https://van-connect-api.onrender.com/drivers/${driverId}`).then(res => res.json())
         ])
         .then(([route, driver]) => {
             if (!route || !driver || !route.price || !driver.chavePix) {
@@ -41,7 +41,7 @@ function carregarDadosEGerarQRCode() {
 
             document.getElementById('valor-pix').textContent = `R$ ${route.price.toFixed(2).replace('.', ',')}`;
             const valorFormatado = route.price.toString();
-            const pixUrl = `http://localhost:3000/api/pix?nome=${encodeURIComponent(driver.name)}&cidade=${encodeURIComponent(driver.cidade || 'Belo Horizonte')}&valor=${encodeURIComponent(valorFormatado)}&chave=${encodeURIComponent(driver.chavePix)}`;
+            const pixUrl = `https://van-connect-api.onrender.com/api/pix?nome=${encodeURIComponent(driver.name)}&cidade=${encodeURIComponent(driver.cidade || 'Belo Horizonte')}&valor=${encodeURIComponent(valorFormatado)}&chave=${encodeURIComponent(driver.chavePix)}`;
 
             return fetch(pixUrl).then(res => res.json());
         })
@@ -97,8 +97,8 @@ document.getElementById("btn-pagamento").addEventListener("click", async () => {
     try {
         // 1. Buscar dados do aluno e da rota em paralelo
         const [studentRes, routeRes] = await Promise.all([
-            fetch(`http://localhost:3000/students/${studentId}`),
-            fetch(`http://localhost:3000/routes/${routeId}`)
+            fetch(`https://van-connect-api.onrender.com/students/${studentId}`),
+            fetch(`https://van-connect-api.onrender.com/routes/${routeId}`)
         ]);
 
         if (!studentRes.ok || !routeRes.ok) {
@@ -122,7 +122,7 @@ document.getElementById("btn-pagamento").addEventListener("click", async () => {
         const updatedPickupPoints = route.pickupPoints ? [...route.pickupPoints, newPickupPoint] : [newPickupPoint];
 
         // 3. Salvar a rota atualizada com o novo ponto de coleta
-        await fetch(`http://localhost:3000/routes/${route.id}`, {
+        await fetch(`https://van-connect-api.onrender.com/routes/${route.id}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ pickupPoints: updatedPickupPoints })
@@ -140,7 +140,7 @@ document.getElementById("btn-pagamento").addEventListener("click", async () => {
         };
 
         // 5. Salvar o novo contrato
-        const contractResponse = await fetch('http://localhost:3000/contracts', {
+        const contractResponse = await fetch('https://van-connect-api.onrender.com/contracts', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newContract)
