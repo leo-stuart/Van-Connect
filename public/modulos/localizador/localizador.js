@@ -27,12 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             // 1. Busca a rota e expande os dados do motorista e dos alunos nos pontos de coleta
-            const rotaResponse = await fetch(`http://localhost:3000/routes/${routeId}?_expand=driver`);
+            const rotaResponse = await fetch(`https://van-connect-api.onrender.com/routes/${routeId}?_expand=driver`);
             if (!rotaResponse.ok) throw new Error("Rota não encontrada.");
             const rota = await rotaResponse.json();
 
             // Pega o veículo associado ao motorista
-            const veiculoResponse = await fetch(`http://localhost:3000/vehicles?driverId=${rota.driver.id}`);
+            const veiculoResponse = await fetch(`https://van-connect-api.onrender.com/vehicles?driverId=${rota.driver.id}`);
             const veiculos = await veiculoResponse.json();
             const veiculo = veiculos.length > 0 ? veiculos[0] : { model: 'Não informado' };
 
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
         for (const point of pickupPoints) {
             if (point.longLat && point.studentId) {
                 // Busca o nome do aluno para o popup
-                const studentRes = await fetch(`http://localhost:3000/students/${point.studentId}`);
+                const studentRes = await fetch(`https://van-connect-api.onrender.com/students/${point.studentId}`);
                 const student = await studentRes.json();
                 const studentName = student?.name || 'Aluno';
                 
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         // Usamos o endpoint SSE do nosso servidor Node.js
-        const eventSource = new EventSource(`http://localhost:3000/motoristas/${driverId}`);
+        const eventSource = new EventSource(`https://van-connect-api.onrender.com/motoristas/${driverId}`);
 
         eventSource.onmessage = (event) => {
             try {
