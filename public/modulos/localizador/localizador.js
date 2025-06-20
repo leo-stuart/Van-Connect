@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         // Usamos o endpoint SSE do nosso servidor Node.js
-        const eventSource = new EventSource(`https://van-connect-api.onrender.com/motoristas/${driverId}`);
+        const eventSource = new EventSource(`https://van-connect-api.onrender.com/drivers/${driverId}`);
 
         eventSource.onmessage = (event) => {
             try {

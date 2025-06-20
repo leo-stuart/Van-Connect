@@ -370,19 +370,25 @@
   ],
   "drivers": [
     {
+      "id": 1,
       "name": "Tio João Transportes",
       "contactEmail": "joao@email.com",
       "phone": "(31) 996405019",
+      "photoUrl": "/images/avatars/avatar1.png",
       "status": "Ativo",
-      "id": 1,
+      "cnh": "987654321",
+      "cnhValidity": "2026-05-15",
+      "emergencyContact": "(31) 98888-2223",
+      "usuarioId": 105,
+      "cidade": "Belo Horizonte",
+      "tipoChavePixId": 2,
+      "chavePix": "joao@email.com",
       "realtimeLocation": {
         "longLat": [
           -43.9452745,
           -19.9484908
         ]
-      },
-      "photoUrl": "/images/avatars/avatar1.png",
-      "chavePix": "joao@email.com"
+      }
     },
     {
       "id": 2,
@@ -675,50 +681,6 @@
     {
       "id": 7,
       "url": "/images/avatars/avatar7.png"
-    }
-  ],
-  "motoristas": [
-    {
-      "id": 1,
-      "usuarioId": 102,
-      "chavePix": "admin@pix.com",
-      "cidade": "Belo Horizonte",
-      "tipoChavePixId": 1,
-      "realtimeLocation": {
-        "longLat": [
-          -43.9397233,
-          -19.9332786
-        ]
-      },
-      "picture": "/images/avatars/avatar1.png",
-      "name": "Tio João Transportes",
-      "contactEmail": "joao@email.com",
-      "phone": "(31) 99999-1111",
-      "status": "Disponível",
-      "cnh": "123456789",
-      "cnhValidity": "2028-10-20",
-      "emergencyContact": "(31) 99999-1112"
-    },
-    {
-      "id": 2,
-      "usuarioId": 106,
-      "chavePix": "leo@pix.com",
-      "cidade": "Belo Horizonte",
-      "tipoChavePixId": 2,
-      "realtimeLocation": {
-        "longLat": [
-          -43.93686898619681,
-          -19.932724834316584
-        ]
-      },
-      "picture": "/images/avatars/avatar2.png",
-      "name": "Transporte Seguro Ltda",
-      "contactEmail": "seguro@email.com",
-      "phone": "(31) 98888-2222",
-      "status": "De Férias",
-      "cnh": "987654321",
-      "cnhValidity": "2026-05-15",
-      "emergencyContact": "(31) 98888-2223"
     }
   ],
   "tipoChavesPix": [
